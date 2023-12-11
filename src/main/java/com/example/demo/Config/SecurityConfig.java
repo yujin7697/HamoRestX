@@ -24,6 +24,7 @@ public class SecurityConfig  {
         http.authorizeHttpRequests(
                 authorize->{
                     authorize.requestMatchers("/","/login","/NonLoginMain").permitAll();
+                    authorize.requestMatchers("/css/**","/js/**","/images/**").permitAll();
                     authorize.requestMatchers("/user","/NonLogin").hasRole("USER"); // ROLE_USER
                     authorize.requestMatchers("/member").hasRole("MEMBER"); // ROLE_MEMBER
                     authorize.requestMatchers("/admin").hasRole("MASTER"); // ROLE_ADMIN
