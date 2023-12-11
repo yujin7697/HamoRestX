@@ -11,6 +11,8 @@ public class UserDto {
     private String userPhone;
     private String userBirth;
 
+    private String role;
+
     //OAUTH2
     private String provider;
     private String providerId;
@@ -22,6 +24,7 @@ public class UserDto {
                 .userName(dto.getUserName())
                 .userPhone(dto.getUserPhone())
                 .userBirth(dto.getUserBirth())
+                .role(dto.getRole())
                 .build();
 
         return user;

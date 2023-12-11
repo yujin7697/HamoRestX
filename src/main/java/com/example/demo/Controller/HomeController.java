@@ -14,11 +14,18 @@ public class HomeController {
         log.info("GET /");
         return "NonLoginMain";
     }
-    @GetMapping("/user")
-    public void user(){
-        log.info("GET /user");
 
+    @GetMapping("/login")
+    public String login(){
+        log.info("GET /login");
+        return "login";
     }
+
+//    @GetMapping("/user")
+//    public void user(){
+//        log.info("GET /user");
+//
+//    }
     @GetMapping("/member")
     public void member(){
         log.info("GET /member");

@@ -20,4 +20,6 @@ public class User {
     private String userPhone;
     private String userBirth;
 
+    private String role;
+
 }
