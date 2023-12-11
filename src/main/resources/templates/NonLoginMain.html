@@ -15,9 +15,9 @@
 
     <style>
         header{
-            border-bottom : 1px solid gray;
             margin : 10px 20px;
             padding : 20px 100px;
+            border : 1px solid red;
         }
         .top-header{
             display : flex;
@@ -25,7 +25,6 @@
         }
 
         main{
-        //asdasdadasda
         }
 
         .top-main{
@@ -46,14 +45,23 @@
             justify-content: center;
             flex-direction: column;
 
-            width : 100%;
+            width : 90%;
+        }
+
+        .imgcenter{
             border : 1px solid red;
         }
 
         .text{
             font-family: 'Black Han Sans', sans-serif;
             font-size: 1.5rem;
-            color : rgb(32, 27, 94);
+            color : #17353B; //진한 녹색
+            //#3E797C 진한민트
+            //#F0AD69 포인트 살오렌지색
+            //#E5D0AC 포인트2 살색
+
+            position : relative;
+            right : 150px;
         }
 
         .searchBox{
@@ -89,19 +97,21 @@
     <main>
         <div class="top-main">
             <div class="main-img">
-                <div class="text">여행의 휴식 하모휴식스와 함꼐 하세요!</div>
-                <div class="searchBox">
-                    <div class="input-group mb-3">
-                        <span class="input-group-text" id="basic-addon1">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-search" viewBox="0 0 16 16">
-                                <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"/>
-                            </svg>
-                        </span>
-                        <input type="text" class="form-control" placeholder="어느 지역을 찾으시나요?" aria-label="Username" aria-describedby="basic-addon1">
+                <div class="imgcenter">
+                    <div class="text">여행의 휴식</br>하모휴식스와 함께 하세요!</div>
+                    <div class="searchBox">
+                        <div class="input-group mb-3">
+                            <span class="input-group-text" id="basic-addon1">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-search" viewBox="0 0 16 16">
+                                    <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"/>
+                                </svg>
+                            </span>
+                            <input type="text" class="form-control" placeholder="어느 지역을 찾으시나요?" aria-label="Username" aria-describedby="basic-addon1">
+                        </div>
+                        <div style="border : 1px solid gray;">여기에 달력</div>
+                        <div style="border : 1px solid gray;">여기에 인원 수</div>
+                        <button type="button" class="btn btn-light search-btn">검색</button>
                     </div>
-                    <div style="border : 1px solid gray;">여기에 달력</div>
-                    <div style="border : 1px solid gray;">여기에 인원 수</div>
-                    <button type="button" class="btn btn-light search-btn">검색</button>
                 </div>
             </div>
         </div>
