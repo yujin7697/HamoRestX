@@ -1,6 +1,7 @@
 package com.example.demo.Domain.Entity;
 
 import jakarta.persistence.Entity;
+import jakarta.persistence.Id;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -13,8 +14,11 @@ import lombok.NoArgsConstructor;
 @Builder
 public class Review {
 
-    int reviewId;
-    String userId;
-    int hotelId;
-    
+    @Id
+    private int reviewId;
+    private String userId;
+    private int hotelId;
+    private int reserveId;
+    private String contents;
+
 }

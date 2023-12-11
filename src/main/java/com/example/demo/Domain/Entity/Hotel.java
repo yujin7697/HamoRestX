@@ -15,10 +15,10 @@ import lombok.NoArgsConstructor;
 public class Hotel {
 
     @jakarta.persistence.Id
-    int hotelId;
-    String ownerId;
-    String hotelAddr;
-    String reserveId;
-    String hotelName;
+    private int hotelId;
+    private String ownerId;
+    private String hotelAddr;
+    private String reserveId;
+    private String hotelName;
 
 }
