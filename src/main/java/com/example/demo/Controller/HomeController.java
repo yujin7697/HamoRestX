@@ -2,7 +2,9 @@ package com.example.demo.Controller;
 
 
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.security.core.Authentication;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 
 @Controller
@@ -10,8 +12,17 @@ import org.springframework.web.bind.annotation.GetMapping;
 public class HomeController {
 
     @GetMapping("/")
-    public String home(){
-        log.info("GET /");
+    public String home(Authentication authentication , Model model){
+        log.info("GET /...Authentication" + authentication);
+        log.info("username : " + authentication.getName());
+        log.info("principal : " + authentication.getPrincipal());
+        log.info("authorities : " + authentication.getAuthorities());
+        log.info("details :  " +authentication.getDetails());
+        log.info("credentials : " + authentication.getCredentials());
+
+        model.addAttribute("authentication",authentication);
+
+
         return "NonLoginMain";
     }
 
