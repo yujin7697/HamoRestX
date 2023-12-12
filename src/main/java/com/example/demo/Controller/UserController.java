@@ -2,6 +2,7 @@ package com.example.demo.Controller;
 
 import com.example.demo.Domain.Dto.UserDto;
 import com.example.demo.Domain.Service.UserService;
+import jakarta.servlet.http.HttpServletRequest;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.Authentication;
@@ -38,21 +39,17 @@ public class UserController {
     public void join(){
         log.info("GET /join");
     }
-    @PostMapping("/join")
-    public String join_post(UserDto dto){
-        log.info("POST /join...dto " + dto);
-        //파라미터 받기
-        //입력값 검증(유효성체크)
 
-        //서비스 실행
-        dto.setUserPassword(passwordEncoder.encode(dto.getUserPassword()));
-        boolean isJoin =  userService.Join(dto);
-        //View로 속성등등 전달
-        if(isJoin)
-            return "redirect:login?msg=MemberJoin Success!";
-        else
-            return "forward:join?msg=Join Failed....";
-        //+a 예외처리
+    @PostMapping("/join")
+    public String join_post(UserDto dto, Model model, HttpServletRequest request) {
+        log.info("POST /join "+dto);
+
+        boolean isjoin = userService.joinMember(dto,model,request);
+
+        if(!isjoin){
+            return "login";
+        }
+        return "redirect:/login?msg=Join_Success!";
 
     }
 

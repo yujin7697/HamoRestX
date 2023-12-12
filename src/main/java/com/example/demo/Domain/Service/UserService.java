@@ -3,8 +3,11 @@ package com.example.demo.Domain.Service;
 import com.example.demo.Domain.Dto.UserDto;
 import com.example.demo.Domain.Entity.User;
 import com.example.demo.Domain.Repository.UserRepository;
+import jakarta.servlet.http.HttpServletRequest;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
+import org.springframework.ui.Model;
 
 @Service
 public class UserService {
@@ -12,20 +15,19 @@ public class UserService {
     @Autowired
     private UserRepository userRepository;
 
-    public boolean Join(UserDto dto){
+    @Autowired
+    private PasswordEncoder passwordEncoder;
 
-        //비지니스 Validation Check
+    public boolean joinMember(UserDto dto, Model model, HttpServletRequest request){
 
-        //Dto->Entity
-        User user = new User();
-        user.setUserName(dto.getUserName());
-        user.setUserPassword(dto.getUserPassword());
-        user.setRole(dto.getRole());
-        user.setRole("ROLE_USER");
+        dto.setRole("ROLE_USER");
+        dto.setUserPassword(passwordEncoder.encode(dto.getUserPassword()) );
 
-        //Db Saved...
+        User user = UserDto.dtoToEntity(dto);
+        System.out.println("joinMember's user : " + user);
+
         userRepository.save(user);
 
-        return userRepository.existsById(user.getUserName());
+        return true;
     }
 }
