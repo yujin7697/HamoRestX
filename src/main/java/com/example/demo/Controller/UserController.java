@@ -22,34 +22,21 @@ public class UserController {
     @Autowired
     private PasswordEncoder passwordEncoder;
 
-    @GetMapping("/user")
-    public void user(Authentication authentication , Model model){
-        log.info("GET /user...Authentication : " + authentication);
-        log.info("username : " + authentication.getName());
-        log.info("principal : " + authentication.getPrincipal());
-        log.info("authorities : " + authentication.getAuthorities());
-        log.info("details :  " +authentication.getDetails());
-        log.info("credentials : " + authentication.getCredentials());
-
-        model.addAttribute("authentication",authentication);
-
-    }
-
     @GetMapping("/join")
     public void join(){
         log.info("GET /join");
     }
 
     @PostMapping("/join")
-    public String join_post(UserDto dto, Model model, HttpServletRequest request) {
+    public String join_post(UserDto dto) {
         log.info("POST /join "+dto);
 
-        boolean isjoin = userService.joinMember(dto,model,request);
+        boolean isjoin = userService.joinMember(dto);
 
         if(!isjoin){
             return "login";
         }
-        return "redirect:/login?msg=Join_Success!";
+        return "login";
 
     }
 

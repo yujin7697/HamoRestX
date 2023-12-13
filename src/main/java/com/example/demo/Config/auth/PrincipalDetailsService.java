@@ -26,7 +26,7 @@ public class PrincipalDetailsService implements UserDetailsService {
 
         //Entity -> Dto
         UserDto dto = new UserDto();
-        dto.setUserName(userOptional.get().getUserName());
+        dto.setUserId(userOptional.get().getUserId());
         dto.setUserPassword(userOptional.get().getUserPassword());
         dto.setRole(userOptional.get().getRole());
 

@@ -18,7 +18,7 @@ public class UserService {
     @Autowired
     private PasswordEncoder passwordEncoder;
 
-    public boolean joinMember(UserDto dto, Model model, HttpServletRequest request){
+    public boolean joinMember(UserDto dto){
 
         dto.setRole("ROLE_USER");
         dto.setUserPassword(passwordEncoder.encode(dto.getUserPassword()) );
