@@ -1,27 +1,82 @@
 <!DOCTYPE html>
+
 <html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
+
+    <link rel="stylesheet" href="/css/login.css">
+
+
+    <style>
+
+    </style>
 </head>
 <body>
 
 <a href="/"><img src="/images/hamorestLogo.jpg" width="80" height="100%"></a>
 
-<h1>LOGIN PAGE</h1>
-<form action="/login" method="post">
-    USERNAME : <input name="username" /> <br/>
-    PASSWORD : <input name="password" type="password" /> <br/>
-    <div>
-        <div>
-            <input type="checkbox" name="remember-me"  id="rememberME" />
-            <label  for="rememberME" >로그인 상태를 유지</label>
+<div class="container" id="container">
+    <div class="form-container sign-up-container">
+        <form action="#">
+            <h1>회원가입</h1>
+            <div class="social-container">
+                <a href="#" class="social"><i class="fab fa-facebook-f"></i></a>
+                <a href="#" class="social"><i class="fab fa-google-plus-g"></i></a>
+                <a href="#" class="social"><i class="fab fa-linkedin-in"></i></a>
+            </div>
+            <span>가입 정보를 입력해주세요.</span>
+            <input type="text" placeholder="Id" />
+            <input type="password" placeholder="Password" />
+            <input type="text" placeholder="Name" />
+            <button>가입</button>
+        </form>
+    </div>
+    <div class="form-container sign-in-container">
+        <form action="/login" method="post">
+            <h1>Sign in</h1>
+            <div class="social-container">
+                <a href="#" class="social"><i class="fab fa-facebook-f"></i></a>
+                <a href="#" class="social"><i class="fab fa-google-plus-g"></i></a>
+                <a href="#" class="social"><i class="fab fa-linkedin-in"></i></a>
+            </div>
+            <span>or use your account</span>
+            <input type="text" name="username" placeholder="Id" />
+            <input type="password" name="password" placeholder="Password" />
+            <a href="#">비밀번호를 잊으셨나요?</a>
+            <button type="submit">로그인</button>
+        </form>
+    </div>
+    <div class="overlay-container">
+        <div class="overlay">
+            <div class="overlay-panel overlay-left">
+                <h1>하모휴식스에 오신걸 환영합니다!</h1>
+                <p>계정이 이미 있으시다면 아래 버튼을 눌러 로그인 해주세요.</p>
+                <button class="ghost" id="signIn">로그인 하러가기</button>
+            </div>
+            <div class="overlay-panel overlay-right">
+                <h1>하모휴식스!</h1>
+                <p>계정이 없으시다면 아래 버튼을 눌러 가입을 해주세요.</p>
+                <button class="ghost" id="signUp">가입 하러가기</button>
+            </div>
         </div>
     </div>
-    <input type="submit" />
-    <div th:text="${param.error}"></div>
-</form>
-<a href="/join">회원가입</a> <br/>
+</div>
+
+<script>
+    const signUpButton = document.getElementById('signUp');
+    const signInButton = document.getElementById('signIn');
+    const container = document.getElementById('container');
+
+    signUpButton.addEventListener('click', () => {
+      container.classList.add("right-panel-active");
+    });
+
+    signInButton.addEventListener('click', () => {
+      container.classList.remove("right-panel-active");
+    });
+</script>
+
 
 </body>
 </html>
