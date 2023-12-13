@@ -18,7 +18,7 @@
 
 <div class="container" id="container">
     <div class="form-container sign-up-container">
-        <form action="#">
+        <form name="joinform" action="/join" method="post" onsubmit="return false">
             <h1>회원가입</h1>
             <div class="social-container">
                 <a href="#" class="social"><i class="fab fa-facebook-f"></i></a>
@@ -26,10 +26,10 @@
                 <a href="#" class="social"><i class="fab fa-linkedin-in"></i></a>
             </div>
             <span>가입 정보를 입력해주세요.</span>
-            <input type="text" placeholder="Id" />
-            <input type="password" placeholder="Password" />
-            <input type="text" placeholder="Name" />
-            <button>가입</button>
+            <input type="text" name="UserId" placeholder="Id" />
+            <input type="password" name="UserPassword" placeholder="Password" />
+<!--            <input type="text" placeholder="Name" />-->
+            <button onclick="isValid()">가입</button>
         </form>
     </div>
     <div class="form-container sign-in-container">
@@ -75,6 +75,18 @@
     signInButton.addEventListener('click', () => {
       container.classList.remove("right-panel-active");
     });
+
+    const form = document.joinform;
+    const isValid=()=>{
+        if(form.UserId.value.trim()==""){
+           alert("아이디는 반드시 입력해야 합니다.");
+           return ;
+        }else if(form.UserPassword.value.trim()==""){
+           alert("비밀번호는 반드시 입력해야 합니다.");
+           return ;
+        }
+        form.submit();
+    }
 </script>
 
 
