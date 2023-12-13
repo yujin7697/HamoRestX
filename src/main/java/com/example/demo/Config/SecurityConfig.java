@@ -38,12 +38,12 @@ public class SecurityConfig  {
         //요청 URL별 접근 제한
         http.authorizeHttpRequests(
                 authorize->{
-                    authorize.requestMatchers("/","/login","/NonLoginMain").permitAll();
+                    authorize.requestMatchers("/","/NonLoginMain").permitAll();
                     authorize.requestMatchers("/join").hasRole("ANONYMOUS");
                     authorize.requestMatchers("/css/**","/js/**","/images/**").permitAll();
                     authorize.requestMatchers("/NonLoginMain").hasRole("USER"); // ROLE_USER
-                    authorize.requestMatchers("/member").hasRole("MEMBER"); // ROLE_MEMBER
-                    authorize.requestMatchers("/admin").hasRole("Admin"); // ROLE_ADMIN
+                    authorize.requestMatchers("/member").hasRole("OWNER"); // ROLE_MEMBER
+                    authorize.requestMatchers("/admin").hasRole("MASTER"); // ROLE_ADMIN
                     authorize.anyRequest().authenticated();
                 }
         );

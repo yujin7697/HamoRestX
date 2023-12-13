@@ -23,9 +23,9 @@ public class CustomLoginSuccessHandler implements AuthenticationSuccessHandler  
             try {
                 if (role_str.equals("ROLE_USER")) {
                     response.sendRedirect("/");
-                } else if (role_str.equals("ROLE_MEMBER")) {
+                } else if (role_str.equals("ROLE_OWNER")) {
                     response.sendRedirect("/member");
-                } else if (role_str.equals("ROLE_ADMIN")) {
+                } else if (role_str.equals("ROLE_MASTER")) {
                     response.sendRedirect("/admin");
                 }
             }catch(Exception e){

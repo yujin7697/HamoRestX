@@ -13,14 +13,17 @@ public class HomeController {
 
     @GetMapping("/")
     public String home(Authentication authentication , Model model){
-        log.info("GET /...Authentication" + authentication);
-        log.info("username : " + authentication.getName());
-        log.info("principal : " + authentication.getPrincipal());
-        log.info("authorities : " + authentication.getAuthorities());
-        log.info("details :  " +authentication.getDetails());
-        log.info("credentials : " + authentication.getCredentials());
+        if (authentication != null) {
+            log.info("GET /...Authentication" + authentication);
+            log.info("username : " + authentication.getName());
+            log.info("principal : " + authentication.getPrincipal());
+            log.info("authorities : " + authentication.getAuthorities());
+            log.info("details :  " + authentication.getDetails());
+            log.info("credentials : " + authentication.getCredentials());
 
-        model.addAttribute("authentication",authentication);
+            System.out.println(authentication);
+            model.addAttribute("authentication", authentication);
+        }
 
 
         return "NonLoginMain";
