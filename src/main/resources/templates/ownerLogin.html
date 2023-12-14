@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+    <link rel="stylesheet" href="/css/login.css">
+
+</head>
+<body>
+
+    <a href="/"><img src="/images/hamorestLogo.jpg" width="80" height="100%"></a>
+
+    <div class="container" id="container">
+        <div class="form-container sign-up-container">
+            <form name="joinform" action="/joinOwner" method="post" onsubmit="return false">
+                <h1>비즈니스 회원가입</h1>
+                <div class="social-container">
+                    <a href="#" class="social"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#" class="social"><i class="fab fa-google-plus-g"></i></a>
+                    <a href="#" class="social"><i class="fab fa-linkedin-in"></i></a>
+                </div>
+                <span>가입하기 위한 정보를 입력해주세요.</span>
+                <input type="text" name="OwnerId" placeholder="Id" />
+                <input type="password" name="OwnerPassword" placeholder="Password" />
+                <input type="text" name="OwnerEmail" placeholder="Email" />
+                <input type="text" name="OwnerPhone" placeholder="Phone ex)01012341234" />
+                <button onclick="isValid()">가입</button>
+            </form>
+        </div>
+        <div class="form-container sign-in-container">
+            <form action="/login" method="post">
+                <h1>비즈니스 로그인</h1>
+                <div class="social-container">
+                    <a href="#" class="social"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#" class="social"><i class="fab fa-google-plus-g"></i></a>
+                    <a href="#" class="social"><i class="fab fa-linkedin-in"></i></a>
+                </div>
+                <span>or use your account</span>
+                <input type="text" name="username" placeholder="Id" />
+                <input type="password" name="password" placeholder="Password" />
+                <a href="#">비밀번호를 잊으셨나요?</a>
+                <button type="submit">로그인</button>
+            </form>
+        </div>
+        <div class="overlay-container">
+            <div class="overlay">
+                <div class="overlay-panel overlay-left">
+                    <h1>하모휴식스에 오신걸 환영합니다!</h1>
+                    <p>계정이 이미 있으시다면 아래 버튼을 눌러 로그인 해주세요.</p>
+                    <button class="ghost" id="signIn">비즈니스 로그인 하러가기</button>
+                </div>
+                <div class="overlay-panel overlay-right">
+                    <h1>하모휴식스에 당신의 숙소를 등록하세요!</h1>
+                    <p>비즈니스 계정이 없으시다면 아래 버튼을 눌러 가입을 해주세요.</p>
+                    <button class="ghost" id="signUp">비즈니스 가입 하기</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+    const signUpButton = document.getElementById('signUp');
+    const signInButton = document.getElementById('signIn');
+    const container = document.getElementById('container');
+
+    signUpButton.addEventListener('click', () => {
+      container.classList.add("right-panel-active");
+    });
+
+    signInButton.addEventListener('click', () => {
+      container.classList.remove("right-panel-active");
+    });
+
+    const form = document.joinform;
+    const isValid=()=>{
+        if(form.OwnerId.value.trim()==""){
+           alert("아이디는 반드시 입력해야 합니다.");
+           return ;
+        }else if(form.OwnerPassword.value.trim()==""){
+           alert("비밀번호는 반드시 입력해야 합니다.");
+           return ;
+        }
+        form.submit();
+    }
+</script>
+
+</body>
+</html>

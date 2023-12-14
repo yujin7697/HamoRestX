@@ -22,11 +22,6 @@ public class UserController {
     @Autowired
     private PasswordEncoder passwordEncoder;
 
-    @GetMapping("/join")
-    public void join(){
-        log.info("GET /join");
-    }
-
     @PostMapping("/join")
     public String join_post(UserDto dto) {
         log.info("POST /join "+dto);

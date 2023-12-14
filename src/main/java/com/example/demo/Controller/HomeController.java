@@ -26,7 +26,7 @@ public class HomeController {
         }
 
 
-        return "NonLoginMain";
+        return "main";
     }
 
     @GetMapping("/login")

@@ -1,4 +1,11 @@
 package com.example.demo.Domain.Repository;
 
-public class OwnerRepository {
+import com.example.demo.Domain.Entity.Owner;
+import com.example.demo.Domain.Entity.User;
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.stereotype.Repository;
+
+@Repository
+public interface OwnerRepository extends JpaRepository<Owner,String> {
+
 }

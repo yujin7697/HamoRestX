@@ -98,7 +98,7 @@ public class ExampleController {
         Message message = new Message();
         // 발신번호 및 수신번호는 반드시 01012345678 형태로 입력되어야 합니다.
         message.setFrom("01089319743");
-        message.setTo("수신번호 입력");
+        message.setTo("01089319743");
         message.setText("하모휴식스입니다.");
 
         SingleMessageSentResponse response = this.messageService.sendOne(new SingleMessageSendingRequest(message));
