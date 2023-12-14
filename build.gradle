@@ -38,6 +38,9 @@ dependencies {
 	implementation 'org.springframework.boot:spring-boot-starter-jdbc'
 	implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
 
+	//CoolSMS
+	implementation 'net.nurigo:sdk:4.3.0'
+
 }
 
 tasks.named('test') {
