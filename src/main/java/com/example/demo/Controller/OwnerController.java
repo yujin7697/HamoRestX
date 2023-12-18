@@ -49,7 +49,7 @@ public class OwnerController {
 
     @GetMapping("/owner/hotelManage")
     public void Get_hotelManage(){
-        
+
     }
 
 

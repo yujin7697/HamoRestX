@@ -1,15 +1,23 @@
 package com.example.demo.Controller;
 
 
+import com.example.demo.Domain.Entity.Hotel;
+import com.example.demo.Domain.Service.HotelService;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.Authentication;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 
+import java.util.List;
+
 @Controller
 @Slf4j
 public class HomeController {
+
+    @Autowired
+    private HotelService hotelService;
 
     @GetMapping("/")
     public String home(Authentication authentication , Model model){
@@ -23,8 +31,13 @@ public class HomeController {
 
             System.out.println(authentication);
             model.addAttribute("authentication", authentication);
+
+
         }
 
+        //모든 숙소 리스트 가져오기
+        List<Hotel> hotelList = hotelService.getHotelList();
+        model.addAttribute("hotels", hotelList);
 
         return "main";
     }

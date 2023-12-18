@@ -131,6 +131,23 @@
         </div>
     </main>
 
+    <table>
+        <thead>
+        <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Address</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="hotel : ${hotels}">
+            <td th:text="${hotel.hotelName}"></td>
+            <td th:text="${hotel.hotelAddr}"></td>
+            <td th:text="${hotel.hotelInfo}"></td>
+        </tr>
+        </tbody>
+    </table>
+
     <footer>
         (주)하모휴식스
     </footer>
