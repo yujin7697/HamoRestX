@@ -1,4 +1,25 @@
 package com.example.demo.Domain.Dto;
 
+import com.example.demo.Domain.Entity.Hotel;
+import lombok.Data;
+
+@Data
 public class HotelDto {
+    private int hotelId;
+    private String ownerId;
+    private String hotelAddr;
+    private String hotelInfo;
+    private String hotelName;
+
+    public static Hotel dtoToEntity(HotelDto dto){
+        Hotel hotel = Hotel.builder()
+                .hotelId(dto.getHotelId())
+                .ownerId(dto.getOwnerId())
+                .hotelAddr(dto.getHotelAddr())
+                .hotelInfo(dto.getHotelInfo())
+                .hotelName(dto.getHotelName())
+                .build();
+
+        return hotel;
+    }
 }

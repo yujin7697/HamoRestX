@@ -18,7 +18,7 @@ public class Hotel {
     private int hotelId;
     private String ownerId;
     private String hotelAddr;
-    private String reserveId;
+    private String hotelInfo;
     private String hotelName;
 
 }
