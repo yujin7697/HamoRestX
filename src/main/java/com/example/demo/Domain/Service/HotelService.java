@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class HotelService {
@@ -13,8 +14,9 @@ public class HotelService {
     @Autowired
     private HotelRepository hotelRepository;
 
-    //모든 숙소목록 조회
+    //모든 숙소 목록 조회
     public List<Hotel> getHotelList() {
         return hotelRepository.findAll();
     }
+
 }
