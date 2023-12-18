@@ -14,21 +14,9 @@ import org.springframework.stereotype.Service;
 public class OwnerService {
 
     @Autowired
-    private OwnerRepository ownerRepository;
+    private UserRepository userRepository;
 
     @Autowired
     private PasswordEncoder passwordEncoder;
 
-    public boolean joinOwner(OwnerDto dto){
-
-        dto.setRole("ROLE_OWNER");
-        dto.setOwnerPassword(passwordEncoder.encode(dto.getOwnerPassword()) );
-
-        Owner owner = OwnerDto.dtoToEntity(dto);
-        System.out.println("joinOwner's owner : " + owner);
-
-        ownerRepository.save(owner);
-
-        return true;
-    }
 }

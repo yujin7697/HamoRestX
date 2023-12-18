@@ -23,16 +23,5 @@ public class OwnerController {
         log.info("GET /ownerLogin");
     }
 
-    @PostMapping("/joinOwner")
-    public String join_post(OwnerDto dto) {
-        log.info("POST /join "+dto);
 
-        boolean isjoin = ownerService.joinOwner(dto);
-
-        if(!isjoin){
-            return "login";
-        }
-        return "login";
-
-    }
 }

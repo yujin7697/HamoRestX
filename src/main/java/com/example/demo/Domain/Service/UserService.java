@@ -20,7 +20,6 @@ public class UserService {
 
     public boolean joinMember(UserDto dto){
 
-        dto.setRole("ROLE_USER");
         dto.setUserPassword(passwordEncoder.encode(dto.getUserPassword()) );
 
         User user = UserDto.dtoToEntity(dto);
