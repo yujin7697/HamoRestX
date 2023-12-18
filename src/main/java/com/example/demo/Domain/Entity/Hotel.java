@@ -22,4 +22,6 @@ public class Hotel {
     private String hotelInfo;
     private String hotelName;
 
+    private String permit;
+
 }

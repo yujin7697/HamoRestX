@@ -11,6 +11,8 @@ public class HotelDto {
     private String hotelInfo;
     private String hotelName;
 
+    private String permit;
+
     public static Hotel dtoToEntity(HotelDto dto){
         Hotel hotel = Hotel.builder()
                 .hotelId(dto.getHotelId())
@@ -18,6 +20,7 @@ public class HotelDto {
                 .hotelAddr(dto.getHotelAddr())
                 .hotelInfo(dto.getHotelInfo())
                 .hotelName(dto.getHotelName())
+                .permit(dto.getPermit())
                 .build();
 
         return hotel;

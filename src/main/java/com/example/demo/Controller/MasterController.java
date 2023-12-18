@@ -9,12 +9,16 @@ import org.springframework.web.bind.annotation.GetMapping;
 public class MasterController {
 
     @GetMapping("/admin/adminMain")
-    public void adminMain() {
+    public String adminMain() {
+
+        return "/admin/adminMain";
 
     }
 
     @GetMapping("/admin/hotelPermit")
-    public void hotelPermit() {
+    public String hotelPermit() {
+
+        return "/admin/hotelPermit";
 
     }
 }
