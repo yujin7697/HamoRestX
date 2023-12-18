@@ -79,8 +79,17 @@
         }
 
         //---숙소목록-------------------------------------------------------------
+        .middle-main{
+            width : 250px;
+            margin : 10px 100px;
+
+            display: flex;
+            flex-wrap: wrap; /* 부모의 너비를 초과하는 경우 자동으로 줄바꿈 */
+        }
         .hotel{
-            margin : 20px;
+            border : 1px solid red;
+            margin : 15px;
+            width : 200px;
         }
 
         .hotel img{
@@ -89,9 +98,7 @@
         }
 
         .hotel-1 {
-            border: 1px solid #ccc;
             cursor: pointer;
-            width : 250px;
             display : flex;
             flex-direction: column;
             justify-content: center;
@@ -158,12 +165,11 @@
 
     <!--   여기서부터 숙박 업소 등장이오     -->
     <div class="middle-main">
-        <div class="middle-event"></div>
-        <div th:each="hotel : ${hotels}">
-            <div class="hotel">
+        <div style="display : flex;">
+            <div class="hotel" th:each="hotel : ${hotels}">
                 <a th:href="'/reservation/'+${hotel.hotelId}">
                     <div class="hotel-1">
-                        <img src="images/hotel1.jpg" alt="Hotel Image 1">여기에 이미지
+                        <img src="images/hotel1.jpg" alt="Hotel Image 1">
                         <div th:text="${hotel.hotelName}" style="text-align: center; margin: 5px 0px;">숙소명</div>
                         <div th:text="${hotel.hotelAddr}" style="text-align: center;">주소</div>
                     </div>
