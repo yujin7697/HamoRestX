@@ -42,7 +42,7 @@ public class SecurityConfig  {
                     authorize.requestMatchers("/join").hasRole("ANONYMOUS");
                     authorize.requestMatchers("/css/**","/js/**","/images/**").permitAll();
                     authorize.requestMatchers("/","/main").hasRole("USER"); // ROLE_USER
-                    authorize.requestMatchers("/member").hasRole("MEMBER"); // ROLE_MEMBER
+                    authorize.requestMatchers("/ownerMain").hasRole("MEMBER"); // ROLE_MEMBER
                     authorize.requestMatchers("/admin").hasRole("ADMIN"); // ROLE_ADMIN
                     authorize.anyRequest().authenticated();
                 }

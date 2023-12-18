@@ -23,5 +23,11 @@ public class OwnerController {
         log.info("GET /ownerLogin");
     }
 
+    @GetMapping("/ownerMain")
+    public void ownerMain(){
+
+        log.info("GET /ownerLogin");
+    }
+
 
 }
