@@ -44,7 +44,7 @@ public class OwnerController {
 
         boolean isadd = registrationService.hotelAdd(dto);
 
-        return "hotelManage";
+        return "owner/hotelManage";
     }
 
     @GetMapping("/owner/hotelManage")

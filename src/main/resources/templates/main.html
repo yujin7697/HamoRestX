@@ -77,6 +77,31 @@
             width : 100px;
             margin-left : 20px;
         }
+
+        //---숙소목록-------------------------------------------------------------
+        .hotel{
+            margin : 20px;
+        }
+
+        .hotel img{
+            height: 150px;
+            width : 200px;
+        }
+
+        .hotel-1 {
+            border: 1px solid #ccc;
+            cursor: pointer;
+            width : 250px;
+            display : flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding : 15px;
+        }
+
+        .hotel-1:hover {
+            background-color: #f0f0f0;
+        }
     </style>
 
 </head>
@@ -131,22 +156,22 @@
         </div>
     </main>
 
-    <table>
-        <thead>
-        <tr>
-            <th>ID</th>
-            <th>Name</th>
-            <th>Address</th>
-        </tr>
-        </thead>
-        <tbody>
-        <tr th:each="hotel : ${hotels}">
-            <td th:text="${hotel.hotelName}"></td>
-            <td th:text="${hotel.hotelAddr}"></td>
-            <td th:text="${hotel.hotelInfo}"></td>
-        </tr>
-        </tbody>
-    </table>
+    <!--   여기서부터 숙박 업소 등장이오     -->
+    <div class="middle-main">
+        <div class="middle-event"></div>
+        <div th:each="hotel : ${hotels}">
+            <div class="hotel">
+                <a th:href="'/reservation/'+${hotel.hotelId}">
+                    <div class="hotel-1">
+                        <img src="images/hotel1.jpg" alt="Hotel Image 1">여기에 이미지
+                        <div th:text="${hotel.hotelName}" style="text-align: center; margin: 5px 0px;">숙소명</div>
+                        <div th:text="${hotel.hotelAddr}" style="text-align: center;">주소</div>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </div>
+
 
     <footer>
         (주)하모휴식스
