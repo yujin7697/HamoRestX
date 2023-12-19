@@ -1,17 +1,22 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
 </head>
 <body>
     <header>
-        <!-- 페이지 헤더 -->
         <h1>숙소 예약 페이지</h1>
     </header>
 
     <main>
-        <!-- 여기에 숙소에 대한 상세 정보 및 예약 양식을 추가하세요 -->
+        <h2>Reservation Details</h2>
+
+        <p>Hotel ID: <span id="hotelId" th:text="${hotel.hotelId}"></span></p>
+        <p>Hotel Name: <span th:text="${hotel.hotelName}"></span></p>
+        <p>User ID: <span id="userId" th:text="${userId}"></span></p>
+
+        <button id="reserveButton">호텔 예약</button>
     </main>
 
     <footer>
@@ -20,4 +25,33 @@
     </footer>
 
 </body>
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+
+    <script>
+            $(document).ready(function() {
+                // 예약 버튼 클릭 시
+                $("#reserveButton").click(function() {
+                    // hotelId와 userId를 가져와서 서버로 전송
+                    var hotelId = $("#hotelId").text();
+                    var userId = $("#userId").text();
+
+                    // 서버로 데이터 전송 (AJAX를 사용하여 비동기로 전송)
+                    $.ajax({
+                        type: "POST",  // 또는 "GET" 등을 선택
+                        url: "/reservation/"+hotelId,  // 실제로 데이터를 전송할 서버의 URL
+                        data: {
+                            userId: userId
+                        },
+                        success: function(response) {
+                            // 서버로부터의 응답을 처리 (예: 알림 메시지 표시)
+                            alert(response);
+                        },
+                        error: function(error) {
+                            // 오류가 발생했을 때의 처리
+                            console.error(error);
+                        }
+                    });
+                });
+            });
+    </script>
 </html>

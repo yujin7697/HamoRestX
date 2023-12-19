@@ -19,4 +19,11 @@ public class HotelService {
         return hotelRepository.findAll();
     }
 
+    public Hotel getHotelOne(int hotelId) {
+        Optional<Hotel> optionalHotel = hotelRepository.findByHotelId(hotelId);
+
+        System.out.println("optionalHotel : "+optionalHotel);
+
+        return optionalHotel.orElse(null);
+    }
 }
